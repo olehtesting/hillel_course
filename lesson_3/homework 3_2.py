@@ -25,7 +25,7 @@ def main():
     modified_list = move_last_to_first(my_list)
 
 
-    print("Список після перенесення останнього елемента на початок:", modified_list)
+    print("Список після виконання перенесення останнього елемента на початок:", modified_list)
 
 
 

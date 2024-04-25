@@ -18,4 +18,4 @@ examples = [
 #
 for example, expected_output in examples:
     output = split_list(example)
-    print(f"Було: {example} => Стало: {output} (Очікувано: {expected_output})")
+    print(f"Було: {example} => Стало: {output} (Очікуємо: {expected_output})")

@@ -24,6 +24,5 @@ def is_valid_variable_name(name):
 
     return True
 
-
 user_input = input("Введіть рядок: ")
 print(is_valid_variable_name(user_input))

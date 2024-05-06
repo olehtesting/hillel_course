@@ -1,17 +1,28 @@
 def format_time(seconds):
+    days, remainder = divmod(seconds, 86400)
+    hours, remainder = divmod(remainder, 3600)
+    minutes, seconds = divmod(remainder, 60)
 
-    days, seconds = divmod(seconds, 86400)
-    hours, seconds = divmod(seconds, 3600)
-    minutes, seconds = divmod(seconds, 60)
+    time_str = ""
 
-    formatted_time = ""
-    if days > 0:
-        formatted_time += f"{days} {'день' if days == 1 else 'дні'} "
+    # Визначення кількості днів і формування відповідного рядка
+    if days >= 1:
+        if days % 10 == 1 and days % 100 != 11:
+            time_str += f"{days} день "
+        elif 2 <= days % 10 <= 4 and (days % 100 < 10 or days % 100 >= 20):
+            time_str += f"{days} дні "
+        else:
+            time_str += f"{days} днів "
     else:
-        formatted_time += "0 днів "
-    formatted_time += f"{hours:02d}:{minutes:02d}:{seconds:02d}"
-    return formatted_time
+        time_str += "0 днів "
 
+    # Додавання годин, хвилин і секунд з провідними нулями
+    time_str += f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+    return time_str
+
+
+# Зчитування кількості секунд від користувача
 while True:
     try:
         seconds = int(input("Введіть кількість секунд (більше або дорівнює 0 і менше ніж 8640000): "))
@@ -22,4 +33,5 @@ while True:
     except ValueError:
         print("Будь ласка, введіть ціле число.")
 
+# Форматування і виведення часу
 print("Час у читабельному вигляді:", format_time(seconds))

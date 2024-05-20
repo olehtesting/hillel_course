@@ -14,5 +14,5 @@ def add_one(digits):
 
 
 # Приклад використання функції
-digits = [1, 2, 3, 4]
-print(add_one(digits))  # Виведе: [1, 2, 3, 5]
+digits = [1, 2, 3, 7]
+print(add_one(digits))  # Виведе: [1, 2, 3, 8]
